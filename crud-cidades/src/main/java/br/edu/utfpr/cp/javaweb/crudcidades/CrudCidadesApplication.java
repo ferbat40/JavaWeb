@@ -1,4 +1,4 @@
-package br.edu.ftpr.espjava.crudcidades;
+package br.edu.utfpr.cp.javaweb.crudcidades;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

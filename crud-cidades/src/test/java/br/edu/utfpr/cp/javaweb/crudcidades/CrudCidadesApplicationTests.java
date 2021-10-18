@@ -1,4 +1,4 @@
-package br.edu.ftpr.espjava.crudcidades;
+package br.edu.utfpr.cp.javaweb.crudcidades;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

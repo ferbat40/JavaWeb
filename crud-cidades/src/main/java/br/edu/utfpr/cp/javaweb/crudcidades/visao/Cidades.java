@@ -14,6 +14,8 @@ public class Cidades {
 	}
 
 
+	
+	//@NotBlank(message = "Nome da cidade deve ser informado")
 	public String getNome() {
 		return nome;
 	}

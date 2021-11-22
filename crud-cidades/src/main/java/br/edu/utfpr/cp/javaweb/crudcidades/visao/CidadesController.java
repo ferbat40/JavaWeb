@@ -3,8 +3,11 @@ package br.edu.utfpr.cp.javaweb.crudcidades.visao;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CidadesController {
 	
+
 	private Set<Cidades> cidade;
 	
 	public CidadesController() {
@@ -29,10 +33,23 @@ public class CidadesController {
 		return "/crud";
 	}
 	
-	
+
 	@PostMapping("/criar")
-	public String criar(Cidades cidades) {
+	public String criar(@Valid Cidades cidades, BindingResult validacao) {
+		
+		
+		if (validacao.hasErrors()) {
+			
+			validacao.getFieldErrors()
+			.forEach(e->System.out.println(
+					String.format("%s %s", e.getField(),e.getDefaultMessage())));
+		}else {
+		
+		
 		cidade.add(cidades);
+		
+		}
+		
 		return "redirect:/";
 	}
 	
@@ -59,7 +76,7 @@ public class CidadesController {
     	    @RequestParam String estado,
     	    Model modelo
     	   ) {
-		System.out.println("aqui");
+		
 		var cidadeatual = cidade.stream()
 				.filter(cidades -> cidades.getNome().equals(nome) &&
 						cidades.getEstado().equals(estado)
@@ -81,14 +98,14 @@ public class CidadesController {
 			Cidades cidad
 			) {
 		
-		System.out.println("aqui2");
+		
 		
 		var cidadeatual =  cidade.removeIf(cidadeAtual -> 
 		cidadeAtual.getNome().equals(nomeAtual) &&
 		cidadeAtual.getEstado().equals(estadoAtual)
 		);
 		
-		criar(cidad);
+		criar(cidad,null);
 		
 		return "redirect:/";
 	}

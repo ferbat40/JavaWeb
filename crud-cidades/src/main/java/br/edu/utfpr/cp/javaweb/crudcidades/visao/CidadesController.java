@@ -35,16 +35,29 @@ public class CidadesController {
 	
 
 	@PostMapping("/criar")
-	public String criar(@Valid Cidades cidades, BindingResult validacao) {
-		
-		
+	public String criar(@Valid Cidades cidades, BindingResult validacao, Model memoria) {
+	if (validacao.hasErrors()) {
+			
+			validacao.getFieldErrors()
+			.forEach(e->System.out.println("BUNDA "+e.getField()+"  "+e.getDefaultMessage()));
+			
+	}
+	
+	
 		if (validacao.hasErrors()) {
 			
 			validacao.getFieldErrors()
-			.forEach(e->System.out.println(
-					String.format("%s %s", e.getField(),e.getDefaultMessage())));
+			.forEach(e->
+			
+					memoria.addAttribute(e.getField(),e.getDefaultMessage()));
+			
+		memoria.addAttribute("nomeInformado",cidades.getNome());
+		memoria.addAttribute("cidadeInformada",cidades.getEstado());
+		memoria.addAttribute("listarCidades",cidade);
+		return ("/crud");
+					
 		}else {
-		
+		System.out.println("aqui");
 		
 		cidade.add(cidades);
 		
@@ -96,6 +109,9 @@ public class CidadesController {
 			@RequestParam String nomeAtual,
 			@RequestParam String estadoAtual,
 			Cidades cidad
+			
+			, BindingResult validacao, Model memoria
+			
 			) {
 		
 		
@@ -105,7 +121,7 @@ public class CidadesController {
 		cidadeAtual.getEstado().equals(estadoAtual)
 		);
 		
-		criar(cidad,null);
+		criar(cidad,validacao,memoria);
 		
 		return "redirect:/";
 	}

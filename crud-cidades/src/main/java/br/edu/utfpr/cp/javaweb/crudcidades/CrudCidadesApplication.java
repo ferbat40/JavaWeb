@@ -1,11 +1,13 @@
 package br.edu.utfpr.cp.javaweb.crudcidades;
 
+import javax.validation.Validator;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.validation.Validator;
+
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 
@@ -22,7 +24,7 @@ public class CrudCidadesApplication {
 		ReloadableResourceBundleMessageSource messageSource=
 				
 				new ReloadableResourceBundleMessageSource();
-		System.out.println("cuzao");
+		
 		messageSource.setBasename("classpath:messages");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
@@ -31,10 +33,10 @@ public class CrudCidadesApplication {
 	
 	
 	@Bean
-	public void getValidator() {
+	public Validator getValidator() {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		bean.setValidationMessageSource(messageSource());
-		
+		return bean;
 		
 	}
 

@@ -11,7 +11,7 @@ public class Cidades {
 	private final String nome;
 	
 	@NotBlank(message = "{app.estado.blank}")
-	@Size(min = 5, max = 60, message = "{app.estado.size}")
+	@Size(min = 2, max = 2, message = "{app.estado.size}")
 	private final String estado;
 	
 	

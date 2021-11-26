@@ -1,7 +1,9 @@
-package br.edu.utfpr.cp.javaweb.crudcidades.visao;
+package br.edu.utfpr.cp.javaweb.crudcidades.cidade;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import br.edu.utfpr.cp.javaweb.crudcidades.entidy.CidadeEntidade;
 
 public class Cidades {
 
@@ -32,6 +34,19 @@ public class Cidades {
 	}
 	
 	
+	
+	public CidadeEntidade clonar(){
+		
+		var cidadeEntidade = new CidadeEntidade();
+		cidadeEntidade.setNome(this.getNome());
+		cidadeEntidade.setEstado(this.getEstado());
+		return cidadeEntidade;
+	}
+	
+	
+	public Cidades clonar(CidadeEntidade cidadeEntidade) {
+		return new Cidades(cidadeEntidade.getNome(), cidadeEntidade.getEstado());
+	}
 	
 	
 }

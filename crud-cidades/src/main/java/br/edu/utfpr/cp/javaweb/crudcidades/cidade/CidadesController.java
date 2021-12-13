@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.edu.utfpr.cp.javaweb.crudcidades.entidy.CidadeEntidade;
+
 
 @Controller
 public class CidadesController {
@@ -25,7 +25,7 @@ public class CidadesController {
 	private Set<Cidades> cidade;
 	
 	public CidadesController(CidadeRepository repository) {
-		cidade = new HashSet();
+		cidade = new HashSet<Cidades>();
 		this.repository=repository;
 		
 		

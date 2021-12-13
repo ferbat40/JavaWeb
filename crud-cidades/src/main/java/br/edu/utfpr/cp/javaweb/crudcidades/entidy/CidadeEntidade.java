@@ -7,14 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 
 @Entity(name="cidade")
 public class CidadeEntidade implements Serializable {
  
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CidadeEntidade() {
 		super();
 	}

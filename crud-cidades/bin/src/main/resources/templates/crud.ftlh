@@ -5,12 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Cidades</title>
+    <title>CRUD Cidadesff</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
+
+
+    
+    
+    
+         <nav class="navbar navbar-expand-sm bg-dark">
+         
+         <ul class = "navbar-nav ml-auto>
+         <li class = "nav-item">
+         
+         <a href="/logout"
+         class = "nav-link btn btn-secondary"
+         >Sair da aplicacao</a>
+         
+         
+         </li>
+         
+         
+         
+         </ul>
+    
+ 
+     
+         </nav>    
+    
+    
+    
+
+
 
     <div class="container-fluid">
         <div class="jumbotron mt-5">

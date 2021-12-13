@@ -12,6 +12,23 @@
 
 <body>
 
+
+ <nav class="navbar navbar-expand-sm bg-dark">
+         
+         <ul class = "navbar-nav ml-auto>
+         <li class = "nav-item">
+         
+         <a href="/logout"
+         class = "nav-link btn btn-secondary"
+         >Sair da aplicacao</a>
+         
+         
+         </li>
+         
+         </ul>
+         </nav>
+
+
     <div class="container-fluid">
         <div class="jumbotron mt-5">
             <h1>GERENCIAMENTO DE CIDADES</h1>
